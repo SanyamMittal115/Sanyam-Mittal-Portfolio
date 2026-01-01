@@ -3,7 +3,7 @@ import os
 
 # Get the folder where app.py is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-resume_path = os.path.join(BASE_DIR, "Sanyam(Sunny) Mittal Resume.pdf")
+resume_path = os.path.join(BASE_DIR, "Sanyam(Sunny)_Mittal_resume.pdf")
 # ---------------- Page Config ----------------
 st.set_page_config(
     page_title="Sanyam(Sunny) Mittal | Portfolio",
@@ -267,4 +267,5 @@ st.markdown("""
     💼 <a href="www.linkedin.com/in/sanyam-mittal-sunny115" target="_blank">LinkedIn</a><br>
     🐙 <a href="https://github.com/SanyamMittal115" target="_blank">GitHub</a>
 </div>
+
 """, unsafe_allow_html=True)
