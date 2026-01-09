@@ -1,6 +1,9 @@
 import streamlit as st
 import os
-
+@st.cache_data
+def load_resume(path):
+    with open(path, "rb") as f:
+        return f.read()
 # Get the folder where app.py is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 resume_path = os.path.join(BASE_DIR, "Sanyam(Sunny)_Mittal_resume.pdf")
@@ -245,15 +248,15 @@ div.stDownloadButton > button {{
 }}
 </style>
 """, unsafe_allow_html=True)
-if os.path.exists(resume_path):
-    with open(resume_path, "rb") as f:
-        st.download_button(
-            "📄 Download Resume",
-            f,
-            file_name="Sanyam(Sunny) Mittal Resume.pdf"
-        )
+iif os.path.exists(resume_path):
+    resume_bytes = load_resume(resume_path)
+    st.download_button(
+        "📄 Download Resume",
+        resume_bytes,
+        file_name="Sanyam(Sunny) Mittal Resume.pdf"
+    )
 else:
-    st.error(f"Resume not found at {resume_path}")
+    st.error("Resume file not found.")
     
 
 # ---------------- CONTACT ----------------
@@ -269,3 +272,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
