@@ -248,7 +248,7 @@ div.stDownloadButton > button {{
 }}
 </style>
 """, unsafe_allow_html=True)
-iif os.path.exists(resume_path):
+if os.path.exists(resume_path):
     resume_bytes = load_resume(resume_path)
     st.download_button(
         "📄 Download Resume",
@@ -272,4 +272,5 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
 
